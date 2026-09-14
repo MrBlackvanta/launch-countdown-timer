@@ -4,13 +4,60 @@
 @theme {
   --font-sans: var(--font-red-hat-text), ui-sans-serif, system-ui, sans-serif;
 
+  --color-sky-top: #1d1e28;
+  --color-sky-mid: #261c2d;
+  --color-sky-bottom: #261a2d;
+  --color-star: #46485b;
   --color-hill-far: #211a29;
   --color-hill-peak: #1a1823;
   --color-hill-near: #2f2439;
+
+  --color-card-shell: #191a23;
+  --color-card-face: #343650;
+  --color-card-shade: #2c2d44;
+  --color-card-fold: #202132;
+
+  --color-accent: #fb5e84;
+  --color-muted: #8385a9;
+
+  --background-image-sky: linear-gradient(
+    to bottom,
+    var(--color-sky-top) 0%,
+    var(--color-sky-mid) 95%,
+    var(--color-sky-bottom) 100%
+  );
+
+  --tracking-heading: 0.34em;
+  --tracking-label: 0.42em;
+  --tracking-digit: -0.03em;
+
+  --text-heading: 1.125rem;
+  --text-heading--line-height: normal;
+  --text-heading-md: 1.375rem;
+  --text-heading-md--line-height: normal;
+
+  --text-label: 0.625rem;
+  --text-label--line-height: normal;
+  --text-label-md: 0.875rem;
+  --text-label-md--line-height: normal;
+
+  --text-digit: 2.25rem;
+  --text-digit--line-height: 1;
+  --text-digit-md: 5rem;
+  --text-digit-md--line-height: 1;
 }
 
 @layer base {
   html {
     @apply font-sans font-bold;
+    color-scheme: dark;
   }
+  body {
+    @apply bg-sky text-white;
+  }
+}
+
+@utility v-tracked-* {
+  letter-spacing: --value(--tracking-*);
+  margin-inline-start: --value(--tracking-*);
 }
