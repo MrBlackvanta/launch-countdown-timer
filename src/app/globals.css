@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@source not "../../*.md";
+
+@theme {
+  --font-sans: var(--font-red-hat-text), ui-sans-serif, system-ui, sans-serif;
+
+  --color-hill-far: #211a29;
+  --color-hill-peak: #1a1823;
+  --color-hill-near: #2f2439;
+}
+
+@layer base {
+  html {
+    @apply font-sans font-bold;
+  }
+}
