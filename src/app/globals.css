@@ -61,3 +61,7 @@
   letter-spacing: --value(--tracking-*);
   margin-inline-start: --value(--tracking-*);
 }
+
+@utility v-focus-ring {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white;
+}

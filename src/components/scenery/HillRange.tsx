@@ -21,8 +21,9 @@ export default function HillRange() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="743 0 594 266"
+        preserveAspectRatio="xMidYMin slice"
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 w-full sm:hidden"
+        className="absolute inset-x-0 bottom-0 max-h-42 w-full md:hidden"
       >
         {ridges}
       </svg>
@@ -30,7 +31,7 @@ export default function HillRange() {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 197"
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 hidden w-full sm:block"
+        className="absolute inset-x-0 bottom-0 hidden w-full md:block"
       >
         {ridges}
       </svg>

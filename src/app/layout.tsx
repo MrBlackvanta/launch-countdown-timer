@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${redHatText.variable} antialiased`}>
-      <body>{children}</body>
+      <body className="relative flex min-h-dvh flex-col">{children}</body>
     </html>
   );
 }
