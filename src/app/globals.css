@@ -14,10 +14,11 @@
 
   --color-card-shell: #191a23;
   --color-card-face: #343650;
-  --color-card-shade: #2c2d44;
-  --color-card-fold: #202132;
+  --color-card-shade: #2c2e44;
+  --color-card-fold: #212333;
 
   --color-accent: #fb5e84;
+  --color-accent-shade: #d55070;
   --color-muted: #8385a9;
 
   --background-image-sky: linear-gradient(
@@ -36,7 +37,7 @@
   --text-heading-md: 1.375rem;
   --text-heading-md--line-height: normal;
 
-  --text-label: 0.625rem;
+  --text-label: 0.4375rem;
   --text-label--line-height: normal;
   --text-label-md: 0.875rem;
   --text-label-md--line-height: normal;
