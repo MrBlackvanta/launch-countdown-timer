@@ -14,10 +14,7 @@ export default function FlipCard({ value }: FlipCardProps) {
           </span>
         </div>
         <div className="bg-card-shade relative h-1/2 overflow-clip rounded-b-sm md:rounded-b-lg">
-          <span
-            aria-hidden="true"
-            className="text-digit v-tracked-digit md:text-digit-md text-accent-shade absolute inset-x-0 top-0 -translate-y-1/2 text-center"
-          >
+          <span className="text-digit v-tracked-digit md:text-digit-md text-accent-shade absolute inset-x-0 top-0 -translate-y-1/2 text-center">
             {digits}
           </span>
         </div>

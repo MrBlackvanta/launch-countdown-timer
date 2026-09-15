@@ -1,23 +1,44 @@
+"use client";
+
+import type { Remaining } from "@/lib";
+
 import FlipCard from "./flip-card";
+import { useCountdown } from "./use-countdown";
 
-const units = [
-  { label: "Days", value: 8 },
-  { label: "Hours", value: 23 },
-  { label: "Minutes", value: 55 },
-  { label: "Seconds", value: 41 },
-];
+type CountdownProps = {
+  renderedAt: number;
+};
 
-export default function Countdown() {
+const units: (keyof Remaining)[] = ["days", "hours", "minutes", "seconds"];
+
+function spoken(remaining: Remaining) {
+  const [days, hours, minutes, seconds] = units.map((unit) => {
+    const value = remaining[unit];
+
+    return `${value} ${value === 1 ? unit.slice(0, -1) : unit}`;
+  });
+
+  return `${days}, ${hours}, ${minutes} and ${seconds} until launch.`;
+}
+
+export default function Countdown({ renderedAt }: CountdownProps) {
+  const remaining = useCountdown(renderedAt);
+
   return (
-    <ul role="list" className="grid grid-cols-4 gap-4 md:gap-8">
-      {units.map(({ label, value }) => (
-        <li key={label} className="grid gap-2.25 md:gap-4">
-          <FlipCard value={value} />
-          <p className="text-label v-tracked-label md:text-label-md text-muted text-center uppercase">
-            {label}
-          </p>
-        </li>
-      ))}
-    </ul>
+    <>
+      <p role="timer" className="sr-only">
+        {spoken(remaining)}
+      </p>
+      <ul aria-hidden="true" className="grid grid-cols-4 gap-4 md:gap-8">
+        {units.map((unit) => (
+          <li key={unit} className="grid gap-2.25 md:gap-4">
+            <FlipCard value={remaining[unit]} />
+            <p className="text-label v-tracked-label md:text-label-md text-muted text-center uppercase">
+              {unit}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

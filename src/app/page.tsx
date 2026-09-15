@@ -1,6 +1,7 @@
 import { Countdown } from "@/components/countdown";
 import { SiteFooter } from "@/components/layout";
 import { NightSky } from "@/components/scenery";
+import { buildTime } from "@/lib";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <h1 className="text-heading v-tracked-heading md:text-heading-md text-center uppercase">
           We’re launching soon
         </h1>
-        <Countdown />
+        <Countdown renderedAt={buildTime} />
       </main>
       <SiteFooter />
     </>
