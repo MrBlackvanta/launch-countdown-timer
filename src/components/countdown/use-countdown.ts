@@ -1,14 +1,16 @@
 "use client";
 
-import { remainingAt, type Remaining } from "@/lib";
+import { remainingAt } from "@/lib";
 import { useSyncExternalStore } from "react";
 
 const listeners = new Set<() => void>();
 
 let currentSecond = Math.floor(Date.now() / 1000);
+let previousSecond = currentSecond;
 let timer: ReturnType<typeof setTimeout> | undefined;
 
 function tick() {
+  previousSecond = currentSecond;
   currentSecond = Math.floor(Date.now() / 1000);
   scheduleTick();
 
@@ -23,6 +25,7 @@ function subscribe(listener: () => void) {
   listeners.add(listener);
   if (listeners.size === 1) {
     currentSecond = Math.floor(Date.now() / 1000);
+    previousSecond = currentSecond;
     scheduleTick();
   }
 
@@ -32,14 +35,26 @@ function subscribe(listener: () => void) {
   };
 }
 
-function getSnapshot() {
+function getCurrentSecond() {
   return currentSecond;
 }
 
-export function useCountdown(renderedAt: number): Remaining {
-  const second = useSyncExternalStore(subscribe, getSnapshot, () =>
-    Math.floor(renderedAt / 1000),
+function getPreviousSecond() {
+  return previousSecond;
+}
+
+export function useCountdown(renderedAt: number) {
+  const renderedSecond = Math.floor(renderedAt / 1000);
+  const current = useSyncExternalStore(
+    subscribe,
+    getCurrentSecond,
+    () => renderedSecond,
+  );
+  const before = useSyncExternalStore(
+    subscribe,
+    getPreviousSecond,
+    () => renderedSecond,
   );
 
-  return remainingAt(second);
+  return { remaining: remainingAt(current), previous: remainingAt(before) };
 }

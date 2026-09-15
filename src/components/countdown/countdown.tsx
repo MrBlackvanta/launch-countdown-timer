@@ -22,7 +22,7 @@ function spoken(remaining: Remaining) {
 }
 
 export default function Countdown({ renderedAt }: CountdownProps) {
-  const remaining = useCountdown(renderedAt);
+  const { remaining, previous } = useCountdown(renderedAt);
 
   return (
     <>
@@ -32,7 +32,7 @@ export default function Countdown({ renderedAt }: CountdownProps) {
       <ul aria-hidden="true" className="grid grid-cols-4 gap-4 md:gap-8">
         {units.map((unit) => (
           <li key={unit} className="grid gap-2.25 md:gap-4">
-            <FlipCard value={remaining[unit]} />
+            <FlipCard value={remaining[unit]} previous={previous[unit]} />
             <p className="text-label v-tracked-label md:text-label-md text-muted text-center uppercase">
               {unit}
             </p>

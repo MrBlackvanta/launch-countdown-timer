@@ -15,7 +15,7 @@
   --color-card-shell: #191a23;
   --color-card-face: #343650;
   --color-card-shade: #2c2e44;
-  --color-card-fold: #212333;
+  --color-card-fold: #27283c;
 
   --color-accent: #fb5e84;
   --color-accent-shade: #d55070;
@@ -46,6 +46,21 @@
   --text-digit--line-height: 1;
   --text-digit-md: 5rem;
   --text-digit-md--line-height: 1;
+
+  --animate-flip-out: flip-out 300ms ease-in forwards;
+  --animate-flip-in: flip-in 300ms 300ms ease-out both;
+
+  @keyframes flip-out {
+    to {
+      transform: rotateX(-90deg);
+    }
+  }
+
+  @keyframes flip-in {
+    from {
+      transform: rotateX(90deg);
+    }
+  }
 }
 
 @layer base {

@@ -1,3 +1,3 @@
-export { default as HillRange } from "./HillRange";
-export { default as NightSky } from "./NightSky";
-export { default as StarField } from "./StarField";
+export { default as HillRange } from "./hill-range";
+export { default as NightSky } from "./night-sky";
+export { default as StarField } from "./star-field";

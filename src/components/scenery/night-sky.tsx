@@ -1,5 +1,5 @@
-import HillRange from "./HillRange";
-import StarField from "./StarField";
+import HillRange from "./hill-range";
+import StarField from "./star-field";
 
 export default function NightSky() {
   return (

@@ -14,7 +14,7 @@ const shareImage = {
   url: "/opengraph-image.jpg",
   width: 1200,
   height: 630,
-  alt: "The word Liftoff over a starlit night sky above the line Launching soon.",
+  alt: "The Liftoff countdown over a starlit night sky, beside the words Countdown to launch.",
 };
 
 const redHatText = Red_Hat_Text({
