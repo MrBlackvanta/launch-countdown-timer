@@ -1,9 +1,7 @@
+import { SITE_URL } from "@/app/site";
 import type { Metadata, Viewport } from "next";
 import { Red_Hat_Text } from "next/font/google";
 import "./globals.css";
-
-const SITE_URL =
-  "https://launch-countdown-timer.abdelrhman-ahmed8881.workers.dev";
 
 const name = "Liftoff";
 const title = `${name} | Launching soon`;
